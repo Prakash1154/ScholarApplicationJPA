@@ -36,7 +36,7 @@ public class IMTAFilter implements Filter {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> map = mapper.readValue(payload, Map.class);
         Map<String, Object> resultPayload = new HashMap<>();
-        List<String> response = Arrays.asList("id", "number", "email", "abc");
+        List<String> response = Arrays.asList("id", "scholarId", "scholarName", "scholarAge");
         for (String s : response) {
           if (map.containsKey(s)) {
             resultPayload.put(s, map.get(s));
