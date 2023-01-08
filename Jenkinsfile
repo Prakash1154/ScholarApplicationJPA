@@ -6,5 +6,10 @@ pipeline{
           git branch: 'main', url: 'https://github.com/Prakash1154/ScholarApplicationJPA.git'
         }
       }
+      stage('Maven Build'){
+              steps{
+                sh 'mvn clean install'
+              }
+      }
     }
 }
