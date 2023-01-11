@@ -1,6 +1,6 @@
 pipeline{
-def devClusterName = "devfarm.cobalt.ariba.com"
-def serviceContext = "-"
+def devClusterName = 'devfarm.cobalt.ariba.com'
+def serviceContext = '-'
   agent any
    stages{
       stage('Git Checkout'){
