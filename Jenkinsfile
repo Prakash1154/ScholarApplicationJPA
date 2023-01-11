@@ -9,6 +9,7 @@ pipeline{
 
       stage('Maven test'){
               steps{
+              println("in jenkins")
                   sh 'mvn test'
               }
             }
