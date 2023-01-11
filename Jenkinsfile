@@ -16,13 +16,14 @@ pipeline{
               steps{
               println("in jenkins")
               //https://devfarm.cobalt.ariba.com/search-publish/v1/service/health
-
+              script{
               getCall = new URL(' "https://' + devClusterName + '/search'+serviceContext+'publish/v1/service/health" ')
               getCallRC = getCall.getResponseCode()
               println(getCallRC)
               if(getCallRC.equals(200)) {
               println(getCall.getInputStream().getText())
                   sh 'mvn test'
+              }
               }
             }
       }
