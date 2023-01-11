@@ -1,9 +1,9 @@
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
-def java.net.URL getCall = ''
+def getCall = ''
 def getCallRC = ''
 def url=''
-def String yourURLStr = ''
+def yourURLStr = ''
 pipeline{
 
   agent any
