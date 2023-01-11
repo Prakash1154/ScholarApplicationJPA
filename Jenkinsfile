@@ -11,8 +11,8 @@ def serviceContext = "-"
 
       stage('Maven test'){
               steps{
-              println("in jenkins")https:
-              //devfarm.cobalt.ariba.com/search-publish/v1/service/health
+              println("in jenkins")
+              //https://devfarm.cobalt.ariba.com/search-publish/v1/service/health
               def url = ' "https://' + devClusterName + '/search'+serviceContext+'publish/v1/service/health" '
               def getCall = new URL(url)
               def getCallRC = getCall.getResponseCode()
