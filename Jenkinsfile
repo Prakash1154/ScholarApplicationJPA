@@ -1,6 +1,7 @@
-pipeline{
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
+pipeline{
+
   agent any
    stages{
       stage('Git Checkout'){
