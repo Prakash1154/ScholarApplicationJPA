@@ -1,6 +1,6 @@
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
-def getCall = ''
+def java.net.URL getCall = ''
 def getCallRC = ''
 def url=''
 def String yourURLStr = ''
@@ -27,7 +27,7 @@ pipeline{
 
 // String url = "http://e2e-soaservices:44000/3.1/StandardDocumentService?wsdl";
 // String yourURLStr = java.net.URLEncoder.encode(url, "UTF-8");
-              java.net.URL getCall = new java.net.URL(yourURLStr);
+              getCall = new java.net.URL(yourURLStr);
 
               getCallRC = getCall.getResponseCode()
               println(getCallRC)
