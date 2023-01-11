@@ -19,8 +19,8 @@ pipeline{
               println("in jenkins")
               //https://devfarm.cobalt.ariba.com/search-publish/v1/service/health
               script{
-//getCall = new URL(' "https://' + devClusterName + '/search'+serviceContext+'publish/v1/service/health" ')
-              getCall = new URL(' "https://' + java.net.URLEncoder.encode(devClusterName, "UTF-8") + '/search'+java.net.URLEncoder.encode(serviceContext, "UTF-8")+'publish/v1/service/health" ')
+                getCall = new URL(' "https://' + devClusterName + '/search'+serviceContext+'publish/v1/service/health" ')
+//              getCall = new URL(' "https://' + java.net.URLEncoder.encode(devClusterName, "UTF-8") + '/search'+java.net.URLEncoder.encode(serviceContext, "UTF-8")+'publish/v1/service/health" ')
               getCallRC = getCall.getResponseCode()
               println(getCallRC)
               if(getCallRC.equals(200)) {
