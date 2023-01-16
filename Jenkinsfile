@@ -14,10 +14,10 @@ pipeline{
         }
       }
        println("Health check started")
-       def url = ' "https://' + devClusterName + '/search'+serviceContext+'-publish/v1/service/health" '
-       def getCall = new URL(url).openConnection()
+       url = ' "https://' + devClusterName + '/search'+serviceContext+'-publish/v1/service/health" '
+       getCall = new URL(url).openConnection()
        println("Health check url done")
-       def getCallRC = getCall.getResponseCode()
+       getCallRC = getCall.getResponseCode()
        println("Health check url response code")
        println(getCallRC)
        if(getCallRC.equals(200)) {
