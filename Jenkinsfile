@@ -10,7 +10,8 @@ pipeline{
    stages{
       stage('Git Checkout'){
         steps{
-          git branch: 'main', url: 'https://github.com/Prakash1154/ScholarApplicationJPA.git'
+        script{
+       git branch: 'main', url: 'https://github.com/Prakash1154/ScholarApplicationJPA.git'
        println("Health check started")
        url = ' "https://' + devClusterName + '/search'+serviceContext+'-publish/v1/service/health" '
        getCall = new URL(url).openConnection()
@@ -21,6 +22,7 @@ pipeline{
        if(getCallRC.equals(200)) {
         println("inside if condition")
         println(getCall.getInputStream().getText())
+        }
         }
         }
         }
