@@ -13,7 +13,7 @@ pipeline{
         script{
        git branch: 'main', url: 'https://github.com/Prakash1154/ScholarApplicationJPA.git'
        println("Health check started")
-       url = ' "https://' + devClusterName + '/search'+serviceContext+'-publish/v1/service/health" '
+       url = ' "https://' + devClusterName + '/search'+serviceContext+'publish/v1/service/health" '
        getCall = new URL(url).openConnection()
        println("Health check url done")
        getCallRC = getCall.getResponseCode()
