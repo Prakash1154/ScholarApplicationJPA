@@ -12,7 +12,6 @@ pipeline{
         steps{
           git branch: 'main', url: 'https://github.com/Prakash1154/ScholarApplicationJPA.git'
         }
-      }
        println("Health check started")
        url = ' "https://' + devClusterName + '/search'+serviceContext+'-publish/v1/service/health" '
        getCall = new URL(url).openConnection()
@@ -25,4 +24,5 @@ pipeline{
         println(getCall.getInputStream().getText())
         }
         }
+   }
    }
