@@ -32,14 +32,14 @@ pipeline{
           println curl_output
           data = new JsonSlurperClassic().parseText(curl_output)
           println data.status
-          if(data.status.toString().equals("UP")){
+          if(data.status.toString().equals("P")){
             println 'inside if'
             stage('stage inside if'){
                     sh 'mvn clean install'
                 }
           }
           else{
-             error("Error while calling Health check API")
+             error("Error while calling Health check API, Health check status is ", data.status.toString())
           }
       }
     }
