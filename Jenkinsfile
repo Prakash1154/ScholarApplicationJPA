@@ -29,11 +29,11 @@ pipeline{
           println curl_output
           data = new JsonSlurperClassic().parseText(curl_output)
           println data.status
-          if(data.status == 'UP'){
+          if(data.status.toString().equals("UP"){
             println 'inside if'
-          stage(' stage inside if'){
-                  steps{}
-              }
+            stage(' stage inside if'){
+                    steps{}
+                }
           }
           else{
              error("Error while calling Health check API")
