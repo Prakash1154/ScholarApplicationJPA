@@ -29,8 +29,8 @@ def curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
 println curl_output
 println curl_output.getResponseCode
 println curl_output.response
-def json = new JsonSlurper().parseText( curl_output.text)
-println json
+// def json = new JsonSlurper().parseText( curl_output.text)
+// println json
 
 def holidays = readJson text: curl_output
 for (holiday in holidays.response.holidays) {
