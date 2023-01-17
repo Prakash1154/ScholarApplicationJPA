@@ -30,7 +30,7 @@ println curl_output
 // def holidays = readJson text: curl_output
 // println holidays
 // println curl_output.response
-println curl_output["status"]
+println curl_output.status
 // def json = new JsonSlurper().parseText( curl_output.text)
 // println json
 
