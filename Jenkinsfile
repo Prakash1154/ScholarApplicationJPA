@@ -32,6 +32,9 @@ pipeline{
           if(data.status.toString().equals("UP")){
             println 'inside if'
             stage('stage inside if'){
+            export M2_HOME='/usr/local/Cellar/maven/3.8.7/libexec'
+            export PATH=$PATH:$M2_HOME/bin
+            mvn --version
                     sh 'mvn clean install'
                 }
           }
