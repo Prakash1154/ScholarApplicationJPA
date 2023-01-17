@@ -27,7 +27,7 @@ pipeline{
 def calendar_url = "https://devfarm.cobalt.ariba.com/search-publish/v1/service/health"
 def curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
 println curl_output
-def holidays = readJson text: curl_output
+// def holidays = readJson text: curl_output
 println holidays
 println curl_output.response
 println curl_output["status"]
