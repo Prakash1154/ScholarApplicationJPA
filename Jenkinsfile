@@ -36,7 +36,7 @@ pipeline{
                 }
           }
           else{
-             error("Error while calling Health check API, Health check status is ", data.status.toString())
+             error("Error while calling Health check API, Health check status is " + data.status.toString())
           }
       }
     }
