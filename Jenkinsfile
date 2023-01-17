@@ -29,7 +29,7 @@ pipeline{
           println curl_output
           data = new JsonSlurperClassic().parseText(curl_output)
           println data.status
-          if(data.status.toString().equals("UP"){
+          if(data.status.toString().equals("UP")){
             println 'inside if'
             stage(' stage inside if'){
                     steps{}
