@@ -1,4 +1,3 @@
-import groovy.json.JsonSlurperClassic
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 def getCall = ''
