@@ -1,3 +1,4 @@
+import groovy.json.JsonSlurperClassic
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 def getCall = ''
@@ -30,7 +31,8 @@ println curl_output
 // def holidays = readJson text: curl_output
 // println holidays
 // println curl_output.response
-println curl_output.status
+def data = new JsonSlurperClassic().parseText(curl_output)
+println data.status
 // def json = new JsonSlurper().parseText( curl_output.text)
 // println json
 
