@@ -41,17 +41,12 @@ println 'inside if'
 stage(' stage inside if'){
         steps{}
 }
-// def json = new JsonSlurper().parseText( curl_output.text)
-// println json
-
-
-for (holiday in holidays.response.holidays) {
-    def holiday_date = holiday
-    println holiday_date
+}
+else{
+println 'Error while calling Health check API'
 }
         }
         }
         }
-   }
    }
    }
