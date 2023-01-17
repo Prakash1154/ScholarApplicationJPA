@@ -27,12 +27,20 @@ pipeline{
 
 def calendar_url = "https://devfarm.cobalt.ariba.com/search-publish/v1/service/health"
 def curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
+//sh returnStdout: true, script: "curl -s ${calendar_url}",,,,
+//sh(script: "curl -s ${calendar_url}) it means execute the script and it will return null
+// if we make returnStdout: true it means response will be store in curl_output,
 println curl_output
 // def holidays = readJson text: curl_output
 // println holidays
 // println curl_output.response
 def data = new JsonSlurperClassic().parseText(curl_output)
 println data.status
+if(data.status == 'UP'){
+println 'inside if'
+stage(' stage inside if'){
+        steps{}
+}
 // def json = new JsonSlurper().parseText( curl_output.text)
 // println json
 
