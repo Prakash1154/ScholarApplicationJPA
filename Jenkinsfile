@@ -36,7 +36,7 @@ println curl_output
 // println curl_output.response
 def data = new JsonSlurperClassic().parseText(curl_output)
 println data.status
-if(data.status == 'UP'){
+if(data.status == 'P'){
 println 'inside if'
 stage(' stage inside if'){
         steps{}
