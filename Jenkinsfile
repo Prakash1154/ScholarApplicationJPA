@@ -21,25 +21,25 @@ pipeline{
 //         println(getCall.getInputStream().getText())
 //         }
 
-calendar_url = "https://devfarm.cobalt.ariba.com/search-publish/v1/service/health"
-curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
-//sh returnStdout: true, script: "curl -s ${calendar_url}",,,,
-//sh(script: "curl -s ${calendar_url}) it means execute the script and it will return null
-// if we make returnStdout: true it means response will be store in curl_output,
-println curl_output
-data = new JsonSlurperClassic().parseText(curl_output)
-println data.status
-if(data.status == 'P'){
-println 'inside if'
-stage(' stage inside if'){
-        steps{}
+          calendar_url = "https://devfarm.cobalt.ariba.com/search-publish/v1/service/health"
+          curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
+          //sh returnStdout: true, script: "curl -s ${calendar_url}",,,,
+          //sh(script: "curl -s ${calendar_url}) it means execute the script and it will return null
+          // if we make returnStdout: true it means response will be store in curl_output,
+          println curl_output
+          data = new JsonSlurperClassic().parseText(curl_output)
+          println data.status
+          if(data.status == 'UP'){
+            println 'inside if'
+          stage(' stage inside if'){
+                  steps{}
+              }
+          }
+          else{
+             error("Error while calling Health check API")
+          }
+      }
+    }
+  }
+ }
 }
-}
-else{
-error("Error while calling Health check API")
-}
-        }
-        }
-        }
-   }
-   }
