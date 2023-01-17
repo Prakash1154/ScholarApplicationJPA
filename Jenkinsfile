@@ -3,7 +3,7 @@ def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 def getCall = ''
 def getCallRC = ''
-def url=''
+def calendar_url
 def yourURLStr = ''
 pipeline{
 
@@ -25,7 +25,7 @@ pipeline{
 //         println(getCall.getInputStream().getText())
 //         }
 
-def calendar_url = "https://devfarm.cobalt.ariba.com/search-publish/v1/service/health"
+calendar_url = "https://devfarm.cobalt.ariba.com/search-publish/v1/service/health"
 def curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
 //sh returnStdout: true, script: "curl -s ${calendar_url}",,,,
 //sh(script: "curl -s ${calendar_url}) it means execute the script and it will return null
