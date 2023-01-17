@@ -2,7 +2,7 @@ import groovy.json.JsonSlurperClassic
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 export M2_HOME='/usr/local/Cellar/maven/3.8.7/libexec'
-export PATH=$PATH:$M2_HOME/bin
+export PATH='$PATH:$M2_HOME/bin'
 mvn --version
 pipeline{
 
