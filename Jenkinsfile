@@ -3,7 +3,6 @@ def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 def getCall = ''
 def getCallRC = ''
-def calendar_url
 def yourURLStr = ''
 pipeline{
 
