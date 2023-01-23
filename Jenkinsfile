@@ -41,8 +41,9 @@ pipeline{
       }
     }
   }
+  stage('Git stage test'){
+           steps{}
+           }
  }
-    stage('Git stage test'){
-         steps{}
-         }
+
 }
