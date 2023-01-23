@@ -42,7 +42,7 @@ pipeline{
     }
   }
   stage('Git stage test'){
-           steps{sh 'mvn clean install'}
+           steps{println 'stage testing'}
            }
  }
 
