@@ -29,7 +29,7 @@ pipeline{
           println curl_output
           data = new JsonSlurperClassic().parseText(curl_output)
           println data.status
-          if(data.status.toString().equals("UP")){
+          if(data.status.toString().equals("P")){
             println 'inside if'
             stage('stage inside if'){
                     sh 'mvn clean install'
@@ -41,9 +41,9 @@ pipeline{
       }
     }
   }
-//   stage('Git stage test'){
-//            steps{sh 'mvn clean install'}
-//            }
+  stage('Git stage test'){
+           steps{sh 'mvn clean install'}
+           }
  }
 
 }
