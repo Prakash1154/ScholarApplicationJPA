@@ -41,9 +41,9 @@ pipeline{
       }
     }
   }
-  stage('Git stage test'){
-           steps{sh 'mvn clean install'}
-           }
+//   stage('Git stage test'){
+//            steps{sh 'mvn clean install'}
+//            }
  }
 
 }
