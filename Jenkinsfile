@@ -42,9 +42,10 @@ pipeline{
             arr = id.toString().tokenize( '-' )
             println arr
             println arr.size()
-            println arr[4]
             if(arr.size() > 4){
-              if(arr[4] == 8){
+            println 'inside if'
+            println arr[4]
+              if(arr[4].equals("8"){
                 myJob = id1
                 break
               }
