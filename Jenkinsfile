@@ -47,9 +47,10 @@ pipeline{
         ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
         res = sh returnStdout: true, script: "curl -s ${ca}"
         println res
-        jo = new JsonSlurperClassic().parseText(res)
-        println jo
-        println jo.getAt("displayName")
+        //jo = new JsonSlurperClassic().parseText(res)
+        ids = new groovy.json.JsonSlurper().parseText( res )
+        println ids
+        //println jo.getAt("displayName")
 
 m=env.JOB_BASE_NAME
 println m
