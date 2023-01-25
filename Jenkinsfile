@@ -24,11 +24,12 @@ pipeline{
 //         println(getCall.getInputStream().getText())
 //         }
 
-//         nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
-//         result = sh returnStdout: true, script: "curl -s ${nomadUrl}"
-//                       //sh(script: "curl -s ${url}) it will execute the script and will return null by default
-//                       // if we make returnStdout: true, it means result will be store in variable response,
-//         jobs = new JsonSlurperClassic().parseText(result)
+        nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
+        result = sh returnStdout: true, script: "curl -s ${nomadUrl}"
+                      //sh(script: "curl -s ${url}) it will execute the script and will return null by default
+                      // if we make returnStdout: true, it means result will be store in variable response,
+        println result
+        jobs = new JsonSlurperClassic().parseText(result)
 //         println jobs[0]
 //         r = env.BUILD_TAG
 //         println r
