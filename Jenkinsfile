@@ -2,6 +2,7 @@ import groovy.json.JsonSlurperClassic
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 def Ur = env.BUILD_URL
+def BN = env.BUILD_NUMBER
 
 pipeline{
 
@@ -36,9 +37,12 @@ pipeline{
         allJobs = jobs.getAt("ID")
         println allJobs
         for(id in allJobs){
-            if(id.toString().startsWith("search-types-v-a139d72-8")){
-              myJob = id
-              break
+            arr = id.toString().tokenize( '-' )
+            if(arr.size() > 4){
+              if(arr[4] == BN){
+                myJob = id
+                break
+              }
             }
         }
         println r
@@ -46,6 +50,7 @@ pipeline{
         sp = myJob.tokenize( '-' )
         println Ur
         println sp
+        println BN
         ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
         res = sh returnStdout: true, script: "curl -s ${ca}"
         println res
