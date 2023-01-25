@@ -36,7 +36,7 @@ nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
         println allJobs
         myJob = ''
         for(id in allJobs){
-            if(id.startsWith("search-types-v-a139d72-8")){
+            if(id.toString.startsWith("search-types-v-a139d72-8")){
               myJob = id
             }
             break
