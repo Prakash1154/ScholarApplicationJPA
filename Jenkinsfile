@@ -3,7 +3,6 @@ def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 def Ur = env.BUILD_URL
 def BN = env.BUILD_NUMBER
-def BId = env.BUILD_ID
 
 pipeline{
 
@@ -58,14 +57,15 @@ pipeline{
 // //         sp = myJob.tokenize( '-' )
 // //         println Ur
 // //         println sp
-println BId
-        println BN
-        ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
+//         println BN
+        ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/'
         res = sh returnStdout: true, script: "curl -s ${ca}"
         println res
-        //jo = new JsonSlurperClassic().parseText(res)
+        jo = new JsonSlurperClassic().parseText(res)
+        println jo
         ids = new groovy.json.JsonSlurper().parseText( res )
         println ids
+
         //println jo.getAt("displayName")
 
 m=env.JOB_BASE_NAME
