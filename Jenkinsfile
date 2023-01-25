@@ -43,12 +43,13 @@ pipeline{
             println arr
             println arr.size()
             if(arr.size() > 4){
-            println 'inside if'
-            println arr[4]
+              println 'inside if'
+              println arr[4]
               if(arr[4].equals("8"){
                 myJob = id1
                 break
               }
+
             }
         }
         println r
