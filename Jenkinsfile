@@ -27,7 +27,7 @@ nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
                       //sh(script: "curl -s ${url}) it will execute the script and will return null by default
                       // if we make returnStdout: true, it means result will be store in variable response,
         jobs = new JsonSlurperClassic().parseText(result)
-        println jobs
+        println jobs[0]
         r = env.BUILD_TAG
         println r
         println r
