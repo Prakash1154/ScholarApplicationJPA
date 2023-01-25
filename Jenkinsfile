@@ -31,7 +31,7 @@ nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
         r = env.BUILD_TAG
         println r
         println r
-        jobs.removeAll(it.Status == "dead")
+        jobs.removeAll {it.Status == "dead"}
         allJobs = jobs.getAt("ID")
         println allJobs
 
