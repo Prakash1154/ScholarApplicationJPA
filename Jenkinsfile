@@ -3,6 +3,7 @@ def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
 def Ur = env.BUILD_URL
 def BN = env.BUILD_NUMBER
+def BId = env.BUILD_ID
 
 pipeline{
 
@@ -24,39 +25,40 @@ pipeline{
 //         println(getCall.getInputStream().getText())
 //         }
 
-        nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
-        result = sh returnStdout: true, script: "curl -s ${nomadUrl}"
-                      //sh(script: "curl -s ${url}) it will execute the script and will return null by default
-                      // if we make returnStdout: true, it means result will be store in variable response,
-        jobs = new JsonSlurperClassic().parseText(result)
-        println jobs[0]
-        r = env.BUILD_TAG
-        println r
-        println r
-        jobs.removeAll {it.Status == "dead"}
-        allJobs = jobs.getAt("ID")
-        println allJobs
-        println BN
-        for(id in allJobs){
-            id1=id
-            arr = id.toString().tokenize( '-' )
-            println arr
-            println arr.size()
-            if(arr.size() > 4){
-              println 'inside if'
-              println arr[4]
-              if(arr[4].equals("8")){
-                myJob = id
-                break
-              }
-
-            }
-        }
-        println r
-        println myJob
-//         sp = myJob.tokenize( '-' )
-//         println Ur
-//         println sp
+//         nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
+//         result = sh returnStdout: true, script: "curl -s ${nomadUrl}"
+//                       //sh(script: "curl -s ${url}) it will execute the script and will return null by default
+//                       // if we make returnStdout: true, it means result will be store in variable response,
+//         jobs = new JsonSlurperClassic().parseText(result)
+//         println jobs[0]
+//         r = env.BUILD_TAG
+//         println r
+//         println r
+//         jobs.removeAll {it.Status == "dead"}
+//         allJobs = jobs.getAt("ID")
+//         println allJobs
+//         println BN
+//         for(id in allJobs){
+//             id1=id
+//             arr = id.toString().tokenize( '-' )
+//             println arr
+//             println arr.size()
+//             if(arr.size() > 4){
+//               println 'inside if'
+//               println arr[4]
+//               if(arr[4].equals("8")){
+//                 myJob = id
+//                 break
+//               }
+//
+//             }
+//         }
+//         println r
+//         println myJob
+// //         sp = myJob.tokenize( '-' )
+// //         println Ur
+// //         println sp
+println BId
         println BN
         ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
         res = sh returnStdout: true, script: "curl -s ${ca}"
