@@ -48,6 +48,7 @@ pipeline{
         res = sh returnStdout: true, script: "curl -s ${ca}"
         jo = new JsonSlurperClassic().parseText(res)
         println jo
+        println jo.getAt("displayName")
 
 m=env.JOB_BASE_NAME
 println m
