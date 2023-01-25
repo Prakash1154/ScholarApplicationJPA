@@ -34,6 +34,14 @@ nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
         jobs.removeAll {it.Status == "dead"}
         allJobs = jobs.getAt("ID")
         println allJobs
+        myJob = ''
+        for(id in allJobs){
+            if(id.startsWith("search-types-v-a139d72-8")){
+              myJob = id
+            }
+            break
+        }
+        println myJob
 
 m=env.JOB_BASE_NAME
 println m
