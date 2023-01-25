@@ -46,7 +46,8 @@ pipeline{
         println Ur
         ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
         res = sh returnStdout: true, script: "curl -s ${ca}"
-        println res.displayName
+        jo = new JsonSlurperClassic().parseText(result)
+        println jo.displayName
 
 m=env.JOB_BASE_NAME
 println m
