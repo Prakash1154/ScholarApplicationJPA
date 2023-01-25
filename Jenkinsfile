@@ -59,7 +59,7 @@ pipeline{
 // //         println Ur
 // //         println sp
 //         println BN
-        ca = "https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/xml"
+        ca = "https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json"
         res = sh returnStdout: true, script: "curl -s -X GET ${ca}"
         println res
         pojo = build(new XmlParser().parseText(res))
