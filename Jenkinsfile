@@ -59,9 +59,12 @@ pipeline{
 // //         println Ur
 // //         println sp
 //         println BN
-        ca = "https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json?pretty=true"
+        ca = "https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/xml"
         res = sh returnStdout: true, script: "curl -s ${ca}"
         println res
+        pojo = build(new XmlParser().parseText(res))
+        new groovy.json.JsonBuilder(pojo).toPrettyString()
+        println pojo
         jo = new JsonSlurperClassic().parseText(res)
         println jo
         ids = new groovy.json.JsonSlurper().parseText( res )
