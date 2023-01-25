@@ -24,12 +24,12 @@ pipeline{
 //         println(getCall.getInputStream().getText())
 //         }
 
-        nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
-        result = sh returnStdout: true, script: "curl -s ${nomadUrl}"
-                      //sh(script: "curl -s ${url}) it will execute the script and will return null by default
-                      // if we make returnStdout: true, it means result will be store in variable response,
-        println result
-        jobs = new JsonSlurperClassic().parseText(result)
+//         nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
+//         result = sh returnStdout: true, script: "curl -s ${nomadUrl}"
+//                       //sh(script: "curl -s ${url}) it will execute the script and will return null by default
+//                       // if we make returnStdout: true, it means result will be store in variable response,
+//         println result
+//         jobs = new JsonSlurperClassic().parseText(result)
 //         println jobs[0]
 //         r = env.BUILD_TAG
 //         println r
@@ -60,7 +60,7 @@ pipeline{
 // //         println sp
 //         println BN
         ca = "https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/xml"
-        res = sh returnStdout: true, script: "curl -s ${ca}"
+        res = sh returnStdout: true, script: "curl -s -X GET ${ca}"
         println res
         pojo = build(new XmlParser().parseText(res))
         new groovy.json.JsonBuilder(pojo).toPrettyString()
