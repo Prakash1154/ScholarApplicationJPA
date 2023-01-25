@@ -1,6 +1,7 @@
 import groovy.json.JsonSlurperClassic
 def devClusterName = 'devfarm.cobalt.ariba.com'
 def serviceContext = '-'
+def Ur = env.BUILD_URL
 
 pipeline{
 
@@ -42,6 +43,10 @@ pipeline{
         }
         println r
         println myJob
+        println Ur
+        ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
+        res = sh returnStdout: true, script: "curl -s ${ca}"
+        println res.displayName
 
 m=env.JOB_BASE_NAME
 println m
