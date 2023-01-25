@@ -43,7 +43,9 @@ pipeline{
         }
         println r
         println myJob
+        sp = myJob.tokenize( '-' )
         println Ur
+        println sp
         ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
         res = sh returnStdout: true, script: "curl -s ${ca}"
         println res
