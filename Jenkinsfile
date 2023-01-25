@@ -39,9 +39,11 @@ nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
         println id.toString()
             if(id.toString().startsWith("search-types-v-a139d72-8")){
               myJob = id
+              break
             }
-            break
+
         }
+        println r
         println myJob
 
 m=env.JOB_BASE_NAME
