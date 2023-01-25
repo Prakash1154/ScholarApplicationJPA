@@ -22,7 +22,7 @@ pipeline{
 //         println(getCall.getInputStream().getText())
 //         }
 
-nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
+        nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
         result = sh returnStdout: true, script: "curl -s ${nomadUrl}"
                       //sh(script: "curl -s ${url}) it will execute the script and will return null by default
                       // if we make returnStdout: true, it means result will be store in variable response,
@@ -34,14 +34,11 @@ nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
         jobs.removeAll {it.Status == "dead"}
         allJobs = jobs.getAt("ID")
         println allJobs
-        myJob = ''
         for(id in allJobs){
-        println id.toString()
             if(id.toString().startsWith("search-types-v-a139d72-8")){
               myJob = id
               break
             }
-
         }
         println r
         println myJob
