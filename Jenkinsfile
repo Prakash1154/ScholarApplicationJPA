@@ -28,7 +28,7 @@ nomadUrl = "http://devfarm-ncv.cobalt.ariba.com:4646/v1/jobs"
                       // if we make returnStdout: true, it means result will be store in variable response,
         jobs = new JsonSlurperClassic().parseText(result)
         println jobs
-        jobs.removeAll { it.Status == "dead" }
+        jobs.removeAll { jobs.Status == "dead" }
         allJobs = jobs.getAt("ID")
         println allJobs
 r = env.BUILD_TAG
