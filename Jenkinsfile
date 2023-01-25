@@ -21,13 +21,18 @@ pipeline{
 //         println("inside if condition")
 //         println(getCall.getInputStream().getText())
 //         }
+r = env.BUILD_TAG
+println r
+m=env.JOB_BASE_NAME
+println m
+
           parameters = Jenkins.instance.getAllItems(env.JOB_BASE_NAME).getAction(hudson.model.ParametersAction)
           println 'parameter'
-           println parameters.getParameter('SOME_PARAMETER').value
+          println parameters.getParameter('SOME_PARAMETER').value
 
 
           build = Thread.currentThread().toString()
-          println branch
+          println build
           regexp= ".+?/job/([^/]+)/.*"
           match = build  =~ regexp
           println match
