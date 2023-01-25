@@ -38,22 +38,23 @@ pipeline{
         println allJobs
         println BN
         for(id in allJobs){
+            id1=id
             arr = id.toString().tokenize( '-' )
             println arr
             println arr.size()
             println arr[4]
             if(arr.size() > 4){
               if(arr[4] == 8){
-                myJob = id
+                myJob = id1
                 break
               }
             }
         }
         println r
         println myJob
-        sp = myJob.tokenize( '-' )
-        println Ur
-        println sp
+//         sp = myJob.tokenize( '-' )
+//         println Ur
+//         println sp
         println BN
         ca = 'https://ci.cobalt.only.sap/job/ariba-search/job/typeService/job/CAR-16569-Health_Check/8/api/json'
         res = sh returnStdout: true, script: "curl -s ${ca}"
