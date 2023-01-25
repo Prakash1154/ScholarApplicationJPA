@@ -21,14 +21,16 @@ pipeline{
 //         println("inside if condition")
 //         println(getCall.getInputStream().getText())
 //         }
-
-          def build = Thread.currentThread().toString()
+          branch = env.JOB_BASE_NAME
           println branch
-          def regexp= ".+?/job/([^/]+)/.*"
-          def match = build  =~ regexp
+          build = Thread.currentThread().toString()
+          println branch
+          regexp= ".+?/job/([^/]+)/.*"
+          match = build  =~ regexp
           println match
-          def jobName = match[0][1]
+          jobName = match[0][1]
           println jobName
+
           calendar_url = "https://devfarm.cobalt.ariba.com/search-publish/v1/service/health"
           curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
           //sh returnStdout: true, script: "curl -s ${calendar_url}",,,,
