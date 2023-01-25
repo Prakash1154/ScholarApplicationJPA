@@ -46,7 +46,7 @@ pipeline{
               println 'inside if'
               println arr[4]
               if(arr[4].equals("8")){
-                myJob = id1
+                myJob = id
                 break
               }
 
