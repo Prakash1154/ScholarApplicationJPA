@@ -36,10 +36,11 @@ pipeline{
         jobs.removeAll {it.Status == "dead"}
         allJobs = jobs.getAt("ID")
         println allJobs
+        println BN
         for(id in allJobs){
             arr = id.toString().tokenize( '-' )
             if(arr.size() > 4){
-              if(arr[4] == BN){
+              if(arr[4] == 8){
                 myJob = id
                 break
               }
